@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@600&display=swap');
+
+:root {
+  --main: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.ball,
+.shadow {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 69% 31% 34% 66% / 56% 19% 81% 44%;
+
+  background-color: var(--main);
+  margin: 0 2.5rem;
+  position: relative;
+}
+
+.ball {
+  box-shadow: 0 0 5px var(--main), 0 0 25px var(--main);
+  animation: load 0.8s ease-in-out infinite;
+}
+
+.shadow {
+  bottom: 1.4em;
+  transform: perspective(1rem) rotateX(50deg) scale(1.2, 0.5);
+  animation: blur 0.8s ease-in-out infinite;
+}
+
+.ball:nth-of-type(2),
+.shadow:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+
+.ball:nth-of-type(3),
+.shadow:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+.ball:nth-of-type(4),
+.shadow:nth-of-type(4) {
+  animation-delay: 1s;
+}
+
+@keyframes load {
+  0% {
+    bottom: 0;
+    transform: scale(1.2, 0.9);
+  }
+
+  50% {
+    bottom: 4rem;
+    transform: scale(0.9, 1.1);
+  }
+
+  100% {
+    bottom: 0;
+    transform: scale(1.2, 0.9);
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(1.2em);
+  }
+
+  50% {
+    filter: blur(1.5em);
+  }
+
+  100% {
+    filter: blur(1.2em);
+  }
+}
+
+
+a {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: var(--main);
+  font-family: 'Encode Sans SC';
+  text-decoration: none;
+  border-bottom: 1px solid var(--main);
+}
